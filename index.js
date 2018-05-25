@@ -14,7 +14,7 @@ module.exports.findTest = findTest;
  */
 
 function transform(str, tests) {
-  const matches = str.match(/\[require:.+\]/g);
+  const matches = str.match(/\[require:[^\]]+\]/g);
   if (!matches) {
     return str;
   }
