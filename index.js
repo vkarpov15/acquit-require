@@ -1,7 +1,5 @@
 'use strict';
 
-const acquit = require('acquit');
-
 module.exports = transform;
 module.exports.findTest = findTest;
 
@@ -42,6 +40,7 @@ function transform(str, tests) {
 
 function findTest(regexp, tests) {
   if (typeof tests === 'string') {
+    const acquit = require('acquit');
     tests = acquit.parse(tests);
   }
   if (typeof regexp === 'string') {
