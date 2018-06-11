@@ -1,6 +1,6 @@
 {
   "name": "acquit-require",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Pull examples from your test files into markdown or HTML",
   "main": "index.js",
   "bin": {
