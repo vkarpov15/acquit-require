@@ -14,15 +14,20 @@ module.exports.findTest = findTest;
  */
 
 function transform(str, tests) {
-  const matches = str.match(/\[require:[^\]]+\]/g);
+  const matches = str.match(/ *\[require:[^\]]+\]/g);
   if (!matches) {
     return str;
   }
 
   for (const match of matches) {
-    const test = findTest(match.substring('[require:'.length, match.length - 1), tests);
+    const test = findTest(match.trim().substring('[require:'.length, match.trim().indexOf(']')), tests);
+    if (!test) {
+      continue;
+    }
+    const leadingWhitespace = match.toString().substr(0, match.search(/[^ ]/));
+    const formattedTest = test.split('\n').map(line => `${leadingWhitespace}${line}`).join('\n');
     if (test != null) {
-      str = str.replace(match, test);
+      str = str.replace(match, formattedTest);
     }
   }
 
