@@ -8,7 +8,8 @@
   },
   "scripts": {
     "docs": "acquit-markdown -i false -p './test/example.test.js' -h './HEADER.md' > README.md && node docs.js",
-    "test": "NODE_PATH=../ mocha test/*.test.js"
+    "test": "NODE_PATH=../ mocha test/*.test.js",
+    "lint": "eslint"
   },
   "author": "Valeri Karpov <val@karpov.io>",
   "license": "Apache 2.0",
@@ -25,6 +26,7 @@
   "devDependencies": {
     "acquit": "1.x",
     "acquit-markdown": "0.1.0",
-    "mocha": "5.x"
+    "mocha": "5.x",
+    "eslint": "5.x"
   }
 }
